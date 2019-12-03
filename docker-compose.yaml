@@ -1,0 +1,68 @@
+
+# SPDX-License-Identifier: Apache-2.0
+version: '2.1'
+
+networks:
+  basic:
+    external:
+      name: net_basic
+
+
+services:
+
+  explorerdb.atrbpn.go.id:
+    image: hyperledger/explorer-db:latest
+    container_name: explorerdb.atrbpn.go.id
+    hostname: explorerdb.atrbpn.go.id
+    environment:
+      - DATABASE_DATABASE=fabricexplorer
+      - DATABASE_USERNAME=hppoc
+      - DATABASE_PASSWORD=password
+    volumes:
+      - ./app/persistence/fabric/postgreSQL/db/createdb.sh:/docker-entrypoint-initdb.d/createdb.sh
+      - /opt/hyperledger-explorer/pgdata:/var/lib/postgresql/data
+    networks:
+      - basic
+
+  explorer.atrbpn.go.id:
+    image: hyperledger/explorer:latest
+    container_name: explorer.atrbpn.go.id
+    hostname: explorer.atrbpn.go.id
+    environment:
+      - DATABASE_HOST=explorerdb.atrbpn.go.id
+      - DATABASE_USERNAME=hppoc
+      - DATABASE_PASSWD=password
+      - DISCOVERY_AS_LOCALHOST=false
+    volumes:
+      - ./atrbpn.go.id/try1/config.json:/opt/explorer/app/platform/fabric/config.json
+      - ./atrbpn.go.id/try1/connection-profile:/opt/explorer/app/platform/fabric/connection-profile
+      - ./atrbpn.go.id/try1/crypto:/tmp/crypto
+      - /opt/hyperledger-explorer/walletstore:/opt/wallet
+    command: sh -c "sleep 16&& node /opt/explorer/main.js && tail -f /dev/null"
+    ports:
+      - 8090:8080
+    networks:
+      - basic
+
+  proms:
+    container_name: proms
+    image: prom/prometheus:latest
+    volumes:
+      - ./app/platform/fabric/artifacts/operations/balance-transfer/prometheus.yml:/etc/prometheus/prometheus.yml
+      - /opt/hyperledger-explorer/prometheus-storage:/prometheus
+    ports:
+      - '9090:9090'
+    networks:
+      - basic
+
+  grafana:
+    container_name: grafana
+    image: grafana/grafana:latest
+    volumes:
+      - ./app/platform/fabric/artifacts/operations/balance-transfer/balance-transfer-grafana-dashboard.json:/var/lib/grafana/dashboards/mydashboard.json
+      - ./app/platform/fabric/artifacts/operations/grafana_conf/provisioning:/etc/grafana/provisioning
+      - /opt/hyperledger-explorer/grafana-storage:/var/lib/grafana
+    ports:
+      - '3000:3000'
+    networks:
+      - basic

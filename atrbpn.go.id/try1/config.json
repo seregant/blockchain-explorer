@@ -1,0 +1,9 @@
+{
+	"network-configs": {
+		"atrbpn-network": {
+			"name": "atrbpn-network",
+			"profile": "./connection-profile/atrbpn-network.json"
+		}
+	},
+	"license": "Apache-2.0"
+}
