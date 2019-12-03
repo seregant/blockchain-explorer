@@ -2,7 +2,7 @@
 	"name": "atrbpn-network",
 	"version": "1.0.0",
 	"client": {
-		"tlsEnable": true,
+		"tlsEnable": false,
 		"adminUser": "admin",
 		"adminPassword": "adminpw",
 		"enableAuthentication": false,
