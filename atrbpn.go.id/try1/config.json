@@ -1,77 +1,9 @@
 {
 	"network-configs": {
-	  "network-1": {
-		"version": "1.0",
-		"clients": {
-		  "client-1": {
-			"tlsEnable": false,
-			"organization": "BpnPusatMSP",
-			"channel": "bpnchannel",
-			"credentialStore": {
-			  "path": "./tmp/credentialStore_Org1/credential",
-			  "cryptoStore": {
-				"path": "./tmp/credentialStore_Org1/crypto"
-			  }
-			}
-		  }
-		},
-		"channels": {
-		  "bpnchannel": {
-			"peers": {
-			  "peer0.bpn-pusat.atrbpn.go.id": {}
-			},
-			"connection": {
-			  "timeout": {
-				"peer": {
-				  "endorser": "6000",
-				  "eventHub": "6000",
-				  "eventReg": "6000"
-				}
-			  }
-			}
-		  }
-		},
-		"organizations": {
-		  "BpnPusatMSP": {
-			"mspid": "BpnPusatMSP",
-			"fullpath": false,
-			"adminPrivateKey": {
-			  "path":
-				"/tmp/crypto/peerOrganizations/bpn-pusat.atrbpn.go.id/users/Admin@bpn-pusat.atrbpn.go.id/msp/keystore"
-			},
-			"signedCert": {
-			  "path":
-				"/tmp/crypto/peerOrganizations/bpn-pusat.atrbpn.go.id/users/Admin@bpn-pusat.atrbpn.go.id/msp/signcerts"
-			}
-		  },
-		  "BpnMSP": {
-			"mspid": "BpnMSP",
-			"adminPrivateKey": {
-			  "path":
-				"/tmp/crypto/ordererOrganizations/atrbpn.go.id/users/Admin@atrbpn.go.id/msp/keystore"
-			}
-		  }
-		},
-		"peers": {
-		  "peer0.bpn-pusat.atrbpn.go.id": {
-			"tlsCACerts": {
-			  "path":
-				"/tmp/crypto/peerOrganizations/bpn-pusat.atrbpn.go.id/peers/peer0.bpn-pusat.atrbpn.go.id/tls/ca.crt"
-			},
-			"url": "grpc://peer0.bpn-pusat.atrbpn.go.id:7051",
-			"eventUrl": "grpc://peer0.bpn-pusat.atrbpn.go.id:7053",
-			"grpcOptions": {
-			  "ssl-target-name-override": "peer0.bpn-pusat.atrbpn.go.id"
-			}
-		  }
-		},
-		"orderers": {
-		  "orderer.atrbpn.go.id": {
-			"url": "grpc://orderer.atrbpn.go.id:7050"
-		  }
+		"atrbpn-network": {
+			"name": "atrbpn-network",
+			"profile": "./connection-profile/atrbpn-network.json"
 		}
-	  }
 	},
-	"configtxgenToolPath": "/home/fabric-path/workspace/fabric-samples/bin",
 	"license": "Apache-2.0"
-  }
+}
