@@ -17,7 +17,7 @@
 		}
 	},
 	"channels": {
-		"mychannel": {
+		"bpnchannel": {
 			"peers": {
 				"peer0.bpn-pusat.atrbpn.go.id": {}
 			},
