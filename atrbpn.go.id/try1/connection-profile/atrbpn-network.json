@@ -3,8 +3,8 @@
 	"version": "1.0.0",
 	"client": {
 		"tlsEnable": false,
-		"adminUser": "admin",
-		"adminPassword": "adminpw",
+		"adminUser": "admin-explorer",
+		"adminPassword": "admin123",
 		"enableAuthentication": false,
 		"organization": "BpnPusatMSP",
 		"connection": {
