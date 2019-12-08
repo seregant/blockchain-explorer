@@ -37,7 +37,7 @@
 			"mspid": "BpnPusatMSP",
 			"fullpath": true,
 			"adminPrivateKey": {
-				"path": "/tmp/crypto/peerOrganizations/bpn-pusat.atrbpn.go.id/users/Admin@bpn-pusat.atrbpn.go.id/msp/keystore/002b3c3714ef0fd7de96deae4e07247b35cd8822b8d45d067c34196b0184e19c_sk"
+				"path": "/tmp/crypto/peerOrganizations/bpn-pusat.atrbpn.go.id/users/Admin@bpn-pusat.atrbpn.go.id/msp/keystore/91e8768357a9c38ee73069df515432bbbc4b2f890e6299eecf473d63603c7d4d_sk"
 			},
 			"signedCert": {
 				"path": "/tmp/crypto/peerOrganizations/bpn-pusat.atrbpn.go.id/users/Admin@bpn-pusat.atrbpn.go.id/msp/signcerts/Admin@bpn-pusat.atrbpn.go.id-cert.pem"
