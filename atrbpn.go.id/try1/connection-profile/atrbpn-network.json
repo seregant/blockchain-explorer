@@ -49,8 +49,8 @@
 			"tlsCACerts": {
 				"path": "/tmp/crypto/peerOrganizations/bpn-pusat.atrbpn.go.id/peers/peer0.bpn-pusat.atrbpn.go.id/tls/ca.crt"
 			},
-			"url": "grpcs://peer0.bpn-pusat.atrbpn.go.id:7051",
-			"eventUrl": "grpcs://peer0.bpn-pusat.atrbpn.go.id:7053",
+			"url": "grpc://peer0.bpn-pusat.atrbpn.go.id:7051",
+			"eventUrl": "grpc://peer0.bpn-pusat.atrbpn.go.id:7053",
 			"grpcOptions": {
 				"ssl-target-name-override": "peer0.bpn-pusat.atrbpn.go.id"
 			}
